@@ -7,11 +7,11 @@ This topic describes how to use Altoros Elasticsearch for PCF  after it has been
 
 ##<a id='using'></a> Use Altoros Elasticsearch for PCF with applications
 
-Follow the described procedure to create and bind a service instance to your applications.  
+Follow the procedures below to create and bind a service instance to your applications.  
 
 ### <a id="list"></a>View the Service
 
-Once the tile has been installed, `a-elasticsearch` and its service plans appear in your Marketplace. Run `cf marketplace` command to see the service listing.
+Once the tile has been installed, `a-elasticsearch` and its service plans appear in your Marketplace. Run the `cf marketplace` command to see the service listing.
 
 <pre class="terminal">
 $ cf marketplace
@@ -44,7 +44,7 @@ $ cf bind-service sample-app elasticsearch
 
 To enable access to the service instance, run `cf restage` or `cf restart` to restage or restart your app.
 
-### <a id="obtain"></a>Obtain Service Instance Access Credentials
+### <a id="obtain"></a>Obtain the Service Instance Access Credentials
 
 After you have bound your service instance to your app, you can find the credentials of your Elasticsearch user in the environment variables of the app.
 
