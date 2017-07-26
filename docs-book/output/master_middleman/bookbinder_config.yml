@@ -5,9 +5,9 @@
 :subnav_templates:
   altoros-elasticsearch: altoros-elasticsearch_subnav
 :template_variables: 
-:local_repo_dir: "/Users/victoriakotova/Downloads/docs-altoros-elasticsearch-master-2"
+:local_repo_dir: "/docs"
 :workspace: !ruby/object:Pathname
-  path: "/Users/victoriakotova/Downloads/docs-altoros-elasticsearch-master-2/docs-book/output/master_middleman/source"
+  path: "/docs/docs-book/output/master_middleman/source"
 :feedback_enabled: 
 :repo_link_enabled: true
 :repo_links:
