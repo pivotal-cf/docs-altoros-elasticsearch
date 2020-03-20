@@ -21,4 +21,13 @@ This adds the tile to your staging area.
 
 1. Click **Save**.
 
-1. Return to the **Ops Manager Installation Dashboard** and click **Apply Changes** to install the Altoros Elasticsearch for VMware Tanzu tile.
+1. Disable node.data role for masters (enabled by default):
+  <%= image_tag("images/settings.png") %>
+
+1. Click **Save**.
+
+1. Return to the **Ops Manager Installation Dashboard**
+
+1. Click **Review Pending Changes**
+
+1. **Select PAS** this will update diego cells with dns alias and **Altoros Elasticsearch for VMware Tanzu**.
