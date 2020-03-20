@@ -57,29 +57,38 @@ OK
 
 System-Provided:
 {
- "VCAP_SERVICES": {
-  "a-elasticsearch": [
-   {
-    "credentials": {
-     "index": "djalsjdyruqi",
-     "nodes": [
-      "192.168.111.53",
-      "192.168.111.55",
-      "192.168.111.54"
+  "VCAP_SERVICES": {
+   "a-elasticsearch": [
+    {
+     "binding_name": null,
+     "credentials": {
+      "host": "http://master.elasticsearch.internal:9200",
+      "host_ip": [
+       "http://10.100.2.39:9200"
+      ],
+      "host_ips": [
+       "10.100.2.41",
+       "10.100.2.42",
+       "10.100.2.39",
+       "10.100.2.44"
+      ],
+      "index": "zkrdxiaqzxem",
+      "password": "vkmmbsowhyiech",
+      "port": 9200,
+      "scheme": "http",
+      "username": "dmyelobc"
+     },
+     "instance_name": "index",
+     "label": "a-elasticsearch",
+     "name": "index1",
+     "plan": "default",
+     "provider": null,
+     "syslog_drain_url": null,
+     "tags": [
+      "elasticsearch",
+      "logs"
      ],
-     "password": "xjalqqueorjdl",
-     "username": "skalqowa"
-    },
-    "label": "a-elasticsearch",
-    "name": "elasticsearch",
-    "plan": "default",
-    "provider": null,
-    "syslog_drain_url": null,
-    "tags": [
-     "elasticsearch",
-     "logs"
-    ],
-    "volume_mounts": []
+     "volume_mounts": []
    }
   ]
  }
