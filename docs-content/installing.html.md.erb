@@ -3,27 +3,6 @@ title: Installing and Configuring Altoros Elasticsearch for VMware Tanzu
 owner: Partners
 ---
 
-<style>
-    .note.warning {
-        background-color: #fdd;
-        border-color: #fbb
-    }
-
-    .note.warning:before {
-        color: #f99;
-     }
-</style>
-<style>
-  .note.note {
-      background-color: #fdd;
-      border-color: #fbb
-  }
-
-  .note.note:before {
-      color: #D3EC58;
-   }
-</style>
-
 This topic describes how to install and configure Altoros Elasticsearch for VMware Tanzu.
 
 ##<a id='install'></a> Install and Configure Altoros Elasticsearch for VMware Tanzu
@@ -42,8 +21,7 @@ This adds the tile to your staging area.
 
 1. Click **Save**.
 
-1. You can disable node.data role for masters if you want to store data only on node vms (enabled by default):
-<p class="note warning"><strong>Warning:</strong> Be carefull with this option. Scale your worker node accordinlly, before disable node.data role for master.</p>
+1. Disable node.data role for masters (enabled by default):
   <%= image_tag("images/settings.png") %>
 
 1. Click **Save**.
