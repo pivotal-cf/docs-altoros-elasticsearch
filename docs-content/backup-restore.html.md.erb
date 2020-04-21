@@ -1,0 +1,109 @@
+---
+title: Backup and Restore Altoros Elasticsearch for VMware Tanzu
+owner: Partners
+---
+
+This topic describes how to configure and apply backup/restore for Altoros Elasticsearch for VMware Tanzu. These features are available from v1.1.0 Altoros Elasticsearch.
+
+##<a id='Prerequisites'></a> Prerequisites
+Before you configure and apply Backup and Restore, you must do the following:
+
+* Create S3 bucket in AWS or S3-compatible storage(Minio).
+* Create user with permission to work with this bucket. Here is example of Amazon IAM policy.(changing test-elasticsearch-backups to your bucket name)
+<pre class="json">
+  {
+    "Statement": [
+      {
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:ListBucketMultipartUploads",
+          "s3:ListBucketVersions"
+        ],
+        "Effect": "Allow",
+        "Resource": [
+          "arn:aws:s3:::test-elasticsearch-backups"
+        ]
+      },
+      {
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject",
+          "s3:AbortMultipartUpload",
+          "s3:ListMultipartUploadParts"
+        ],
+        "Effect": "Allow",
+        "Resource": [
+          "arn:aws:s3:::test-elasticsearch-backups/*"
+        ]
+      }
+    ],
+    "Version": "2012-10-17"
+  }
+</pre>
+
+
+##<a id='Configure backup and restore'></a> Configure backup and restore for Altoros Elasticsearch cluster
+
+1. To enable backup/restore functionality click the  **Altoros Elasticsearch for VMware Tanzu** tile.
+
+1. Navigate to the **Backup-Restore** and choose **enable S3 Snapshots** for elasticsearch cluster.
+Fill in the following form
+  <%= image_tag("images/backup-restore.png") %>
+
+1. Provide S3 access and secret keys
+
+1. By default, Snapshot contains all indices, but you can specify what indices to backup and restore accordinly.
+
+1. Provide endpoint to access your s3 storage. It could be ip address or dns name. Check <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html" target="_blank">AWS_DOCS</a> to find  AWS S3 endpoints.
+
+1. Provide name that will be used to create s3 repository type in elasticsearch.
+
+1. Provide S3 bucket name.
+
+1. Click **Save**.
+
+##<a id='BBR Backup and Restore'></a> BBR Backup and Restore for Altoros Elasticsearch cluster
+
+* Before backuping or restoring you must configure <a href="/altoros-elasticsearch/backup-restore.html#Configure%20backup%20and%20restore" target="_blank">S3 settings</a> and apply changes:
+* Install BBR cli <a href="https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases" target="_blank">bbr releases</a>
+
+### <a id="set"></a> Set bosh environment variables
+
+<pre class="terminal">
+$ BOSH_CLIENT_SECRET
+$ BOSH_ENVIRONMENT
+$ BOSH_CA_CERT
+$ BOSH_CLIENT
+</pre>
+
+### <a id="set"></a> Create folder for backup metadata
+
+<pre class="terminal">
+$ mkdir backup-es
+</pre>
+
+### <a id="set"></a> Create backup with bbr cli
+
+Use the `bbr deployment [options] subcommand [subcommand options]` command to create a backup.
+
+<pre class="terminal">
+$ bbr deployment  --target $BOSH_ENVIRONMENT \
+                  --username $BOSH_CLIENT \
+                  --password $BOSH_CLIENT_SECRET \
+                  --deployment altoros-elasticsearch-your_tile_id \
+                  backup --artifact-path backup-es/
+</pre>
+
+### <a id="set"></a> Restore particular backup with bbr cli
+
+Use the `bbr deployment [options] subcommand [subcommand options]` command to restore from specific backup.
+
+<pre class="terminal">
+$ bbr deployment  --target $BOSH_ENVIRONMENT
+                  --username $BOSH_CLIENT \
+                  --password $BOSH_CLIENT_SECRET \
+                  --deployment altoros-elasticsearch-your_tile_id \
+                   restore --artifact-path backup-es/altoros-elasticsearch-your_tile_id_date/
+</pre>
