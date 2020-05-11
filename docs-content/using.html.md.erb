@@ -73,6 +73,7 @@ System-Provided:
        "10.100.2.44"
       ],
       "index": "zkrdxiaqzxem",
+      "index-prefix": "zkrdxiaqzxem",
       "password": "vkmmbsowhyiech",
       "port": 9200,
       "scheme": "http",
@@ -97,6 +98,22 @@ System-Provided:
 </pre>
 
 You can use these parameters to connect to Elasticsearch.
+
+Here is role that will be created for username "dmyelobc"
+
+<pre class="json">
+pczwkauinl:
+  cluster:
+  - CLUSTER_COMPOSITE_OPS
+  - CLUSTER_MONITOR
+  indices:
+    '*':
+      '*':
+      - indices:admin/aliases/get
+    zkrdxiaqzxem*:
+      '*':
+      - ALL
+</pre>
 
 ##<a id='deleting'></a> Delete an Altoros Elasticsearch for VMware Tanzu Service Instance
 
