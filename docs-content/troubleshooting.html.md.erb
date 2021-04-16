@@ -10,3 +10,9 @@ This topic describes how to resolve common issues with Altoros Elasticsearch for
 
 If you use Minio as S3 storage for backup, you have to provide MINIO_DOMAIN environment variable to enable DNS style.
 Use this domain as s3 endpoint for backup.
+
+
+## <a id='Updating Elasticsearch cluster with data'></a>Minio
+
+You should be carefull during update of the cluster with indices on in. Please read this https://www.elastic.co/guide/en/elasticsearch/reference/6.8/rolling-upgrades.html.
+Configure healht check timeout accordinlly.
