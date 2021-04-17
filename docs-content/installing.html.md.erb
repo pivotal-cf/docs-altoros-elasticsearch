@@ -43,8 +43,10 @@ This adds the tile to your staging area.
 1. Click **Save**.
 
 1. You can disable node.data role for masters if you want to store data only on node vms (enabled by default):
-<p class="note warning"><strong>Warning:</strong> Be carefull with this option. Scale your worker node accordinlly, before disable node.data role for master.</p>
+<p class="note warning"><strong>Warning:</strong> Be carefull with this option. If you want to disable node.data role for master, scale your worker nodes before disable accordinlly.</p>
   <%= image_tag("images/settings.png") %>
+
+1. Health check timeout is the time that bosh will wait before run monit stop during update or stop lifecycle. Default is 3000 seconds.
 
 1. Click **Save**.
 
