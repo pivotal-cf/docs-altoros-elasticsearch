@@ -46,6 +46,9 @@ This adds the tile to your staging area.
 <p class="note warning"><strong>Warning:</strong> Be carefull with this option. If you want to disable node.data role for master, scale your worker nodes before disable accordinlly.</p>
   <%= image_tag("images/settings.png") %>
 
+1. Leave **First Install** check box for initial cluster setup and uncheck it immediately after installation completed.
+<p class="note warning"><strong>Warning:</strong> Do not scale out or scale in your cluster during version upgrade from 1.1.4 to 1.1.5.</p>
+
 1. Health check timeout is the time that bosh will wait before run monit stop during update or stop lifecycle. Default is 3000 seconds.
 
 1. Click **Save**.
