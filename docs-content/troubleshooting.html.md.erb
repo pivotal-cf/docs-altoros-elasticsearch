@@ -16,3 +16,7 @@ Use this domain as s3 endpoint for backup.
 
 You should be carefull during update of the cluster with indices on in. Please read this https://www.elastic.co/guide/en/elasticsearch/reference/6.8/rolling-upgrades.html.
 Configure healht check timeout accordinlly.
+
+## <a id='Tls certificates update'></a>Tls certificates update
+Tls certificates are issued for two year. You can check with **openssl s_client -connect localhost:9300 2>/dev/null | openssl x509 -noout -dates**.
+You can enable renew feature in settings.
